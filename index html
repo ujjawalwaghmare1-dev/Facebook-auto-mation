@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 सोशल मीडिया ऑटो पोस्टर - 100+ पोस्ट रोजाना</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            display: none;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        h2 {
+            color: #555;
+            margin: 20px 0 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #4267B2;
+        }
+        
+        button {
+            background: #4267B2;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #365899;
+        }
+        
+        .account-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #4267B2;
+        }
+        
+        .account-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .account-name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .platform-badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .platform-badge.facebook {
+            background: #4267B2;
+            color: white;
+        }
+        
+        .platform-badge.instagram {
+            background: #E1306C;
+            color: white;
+        }
+        
+        .platform-badge.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .platform-badge.telegram {
+            background: #0088cc;
+            color: white;
+        }
+        
+        .remove-account {
+            color: #dc3545;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .stats-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 10px;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .post-type-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .post-type-btn {
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .post-type-btn.active {
+            border-color: #4267B2;
+            background: #e8f0fe;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4267B2, #764ba2);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .log-entry {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+        
+        .log-entry.success {
+            color: #28a745;
+        }
+        
+        .log-entry.error {
+            color: #dc3545;
+        }
+        
+        .log-time {
+            color: #999;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- लॉगिन फॉर्म -->
+    <div class="login-container" id="loginBox">
+        <h1>🔐 सिक्योर एक्सेस</h1>
+        <div class="input-group">
+            <label>पासवर्ड डालें</label>
+            <input type="password" id="passwordInput" placeholder="आपका सीक्रेट पासवर्ड">
+        </div>
+        <button onclick="checkPassword()">लॉगिन करें</button>
+        <p style="text-align:center; margin-top:15px; color:#666;">सिर्फ आपके लिए बना</p>
+    </div>
+    
+    <!-- मुख्य ऐप -->
+    <div class="main-container" id="mainApp">
+        <h1>🚀 सोशल मीडिया ऑटो पोस्टर</h1>
+        
+        <!-- स्टैटिस्टिक्स -->
+        <div class="stats-box">
+            <div class="stat-item">
+                <div class="stat-value" id="totalPosts">0</div>
+                <div class="stat-label">कुल पोस्ट</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="todayPosts">0</div>
+                <div class="stat-label">आज की पोस्ट</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="activeAccounts">0</div>
+                <div class="stat-label">एक्टिव अकाउंट</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="successRate">100%</div>
+                <div class="stat-label">सक्सेस रेट</div>
+            </div>
+        </div>
+        
+        <!-- अकाउंट एड करें -->
+        <h2>📱 सोशल मीडिया अकाउंट्स</h2>
+        <div class="account-card">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <select id="platformSelect" style="width: auto; flex: 1;">
+                    <option value="facebook">Facebook</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="telegram">Telegram</option>
+                    <option value="twitter">Twitter</option>
+                    <option value="linkedin">LinkedIn</option>
+                </select>
+                <input type="text" id="accountLink" placeholder="प्रोफाइल लिंक या यूजरनेम" style="flex: 2;">
+                <input type="text" id="accountToken" placeholder="टोकन/पासवर्ड (अगर जरूरी हो)" style="flex: 2;">
+                <button onclick="addAccount()" style="width: auto; padding: 12px 25px;">➕ एड करें</button>
+            </div>
+        </div>
+        
+        <!-- अकाउंट लिस्ट -->
+        <div id="accountsList"></div>
+        
+        <!-- पोस्ट क्रिएशन -->
+        <h2>📝 नई पोस्ट बनाएं</h2>
+        
+        <div class="post-type-selector">
+            <div class="post-type-btn active" onclick="selectPostType('text')">📝 टेक्स्ट</div>
+            <div class="post-type-btn" onclick="selectPostType('image')">🖼️ इमेज</div>
+            <div class="post-type-btn" onclick="selectPostType('video')">🎥 वीडियो</div>
+        </div>
+        
+        <div id="textPost">
+            <textarea id="postText" placeholder="आपका मैसेज..." rows="4" style="margin: 10px 0;">🔥 नई पोस्ट! इसे जरूर देखें</textarea>
+        </div>
+        
+        <div id="imagePost" style="display: none;">
+            <input type="file" id="postImage" accept="image/*" style="margin: 10px 0;">
+        </div>
+        
+        <div id="videoPost" style="display: none;">
+            <input type="file" id="postVideo" accept="video/*" style="margin: 10px 0;">
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 15px 0;">
+            <div>
+                <label>पोस्ट करने की संख्या</label>
+                <input type="number" id="postCount" min="1" max="1000" value="100">
+            </div>
+            <div>
+                <label>डिले (सेकंड)</label>
+                <input type="number" id="postDelay" min="5" max="3600" value="30">
+            </div>
+            <div>
+                <label>वेरिएशन मोड</label>
+                <select id="variationMode">
+                    <option value="random">रैंडम वेरिएशन</option>
+                    <option value="numbered">नंबर वाला</option>
+                    <option value="time">टाइम स्टैम्प</option>
+                    <option value="none">बिना वेरिएशन</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="checkbox-group">
+            <input type="checkbox" id="postToAll" checked>
+            <label for="postToAll">सभी अकाउंट्स पर पोस्ट करें</label>
+        </div>
+        
+        <div class="checkbox-group">
+            <input type="checkbox" id="schedulePosts">
+            <label for="schedulePosts">शेड्यूल करें (हर दिन)</label>
+        </div>
+        
+        <div id="scheduleOptions" style="display: none; margin: 10px 0;">
+            <select id="scheduleFrequency">
+                <option value="daily">हर दिन</option>
+                <option value="hourly">हर घंटे</option>
+                <option value="custom">कस्टम</option>
+            </select>
+            <input type="time" id="scheduleTime" value="09:00">
+        </div>
+        
+        <div style="display: flex; gap: 10px;">
+            <button onclick="startPosting()" style="flex: 2;">🚀 पोस्टिंग शुरू करें</button>
+            <button onclick="stopPosting()" style="flex: 1; background: #dc3545;">⏹️ स्टॉप</button>
+        </div>
+        
+        <!-- प्रोग्रेस बार -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <!-- स्टेटस और लॉग्स -->
+        <h2>📋 पोस्टिंग स्टेटस</h2>
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; max-height: 300px; overflow-y: auto;" id="logContainer">
+            <div class="log-entry">✅ सिस्टम रेडी - पोस्टिंग शुरू करें</div>
+        </div>
+        
+        <div class="footer">
+            ⚡ 100+ पोस्ट रोजाना | सिर्फ आपके लिए | v2.0
+        </div>
+    </div>
+    
+    <script>
+        // पासवर्ड प्रोटेक्शन
+        const PASSWORD = "yourpassword123"; // अपना पासवर्ड यहाँ डालें
+        
+        // डेटा स्टोरेज
+        let accounts = [];
+        let totalPosts = 0;
+        let todayPosts = 0;
+        let postingActive = false;
+        let currentPostType = 'text';
+        
+        // लोकल स्टोरेज से डेटा लोड करें
+        function loadData() {
+            const saved = localStorage.getItem('socialPosterData');
+            if(saved) {
+                const data = JSON.parse(saved);
+                accounts = data.accounts || [];
+                totalPosts = data.totalPosts || 0;
+                todayPosts = data.todayPosts || 0;
+            }
+            updateStats();
+            renderAccounts();
+        }
+        
+        // डेटा सेव करें
+        function saveData() {
+            localStorage.setItem('socialPosterData', JSON.stringify({
+                accounts: accounts,
+                totalPosts: totalPosts,
+                todayPosts: todayPosts,
+                lastReset: new Date().toDateString()
+            }));
+        }
+        
+        // पासवर्ड चेक
+        function checkPassword() {
+            const pwd = document.getElementById('passwordInput').value;
+            if(pwd === PASSWORD) {
+                document.getElementById('loginBox').style.display = 'none';
+                document.getElementById('mainApp').style.display = 'block';
+                loadData();
+                addLog('✅ लॉगिन सक्सेसफुल', 'success');
+            } else {
+                alert('❌ गलत पासवर्ड!');
+            }
+        }
+        
+        // पोस्ट टाइप सेलेक्ट
+        function selectPostType(type) {
+            currentPostType = type;
+            document.querySelectorAll('.post-type-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.getElementById('textPost').style.display = type === 'text' ? 'block' : 'none';
+            document.getElementById('imagePost').style.display = type === 'image' ? 'block' : 'none';
+            document.getElementById('videoPost').style.display = type === 'video' ? 'block' : 'none';
+        }
+        
+        // अकाउंट एड करें
+        function addAccount() {
+            const platform = document.getElementById('platformSelect').value;
+            const link = document.getElementById('accountLink').value;
+            const token = document.getElementById('accountToken').value;
+            
+            if(!link) {
+                alert('लिंक डालना जरूरी है');
+                return;
+            }
+            
+            accounts.push({
+                id: Date.now() + Math.random(),
+                platform: platform,
+                link: link,
+                token: token,
+                active: true,
+                postsToday: 0,
+                totalPosts: 0
+            });
+            
+            document.getElementById('accountLink').value = '';
+            document.getElementById('accountToken').value = '';
+            
+            saveData();
+            renderAccounts();
+            updateStats();
+            addLog(`➕ नया ${platform} अकाउंट एड किया`, 'success');
+        }
+        
+        // अकाउंट रेंडर करें
+        function renderAccounts() {
+            const list = document.getElementById('accountsList');
+            list.innerHTML = '';
+            
+            accounts.forEach(acc => {
+                const card = document.createElement('div');
+                card.className = 'account-card';
+                card.innerHTML = `
+                    <div class="account-header">
+                        <span class="account-name">${acc.link}</span>
+                        <span class="platform-badge ${acc.platform}">${acc.platform}</span>
+                        <span class="remove-account" onclick="removeAccount(${acc.id})">&times;</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 14px;">
+                        <span>आज: ${acc.postsToday || 0} पोस्ट</span>
+                        <span>कुल: ${acc.totalPosts || 0} पोस्ट</span>
+                        <label>
+                            <input type="checkbox" ${acc.active ? 'checked' : ''} onchange="toggleAccount(${acc.id}, this.checked)">
+                            एक्टिव
+                        </label>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+            
+            document.getElementById('activeAccounts').innerText = accounts.filter(a => a.active).length;
+        }
+        
+        // अकाउंट रिमूव करें
+        function removeAccount(id) {
+            accounts = accounts.filter(a => a.id !== id);
+            saveData();
+            renderAccounts();
+            updateStats();
+        }
+        
+        // अकाउं� टॉगल
+        function toggleAccount(id, active) {
+            const acc = accounts.find(a => a.id === id);
+            if(acc) acc.active = active;
+            saveData();
+            updateStats();
+        }
+        
+        // स्टैटस अपडेट करें
+        function updateStats() {
+            document.getElementById('totalPosts').innerText = totalPosts;
+            document.getElementById('todayPosts').innerText = todayPosts;
+            document.getElementById('activeAccounts').innerText = accounts.filter(a => a.active).length;
+        }
+        
+        // लॉग एड करें
+        function addLog(message, type = '') {
+            const log = document.getElementById('logContainer');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.innerHTML = `<span class="log-time">${new Date().toLocaleTimeString()}</span> ${message}`;
+            log.appendChild(entry);
+            log.scrollTop = log.scrollHeight;
+            
+            // सिर्फ 100 लॉग रखें
+            if(log.children.length > 100) {
+                log.removeChild(log.children[0]);
+            }
+        }
+        
+        // पोस्ट वेरिएशन बनाएं
+        function createVariation(base, index, total) {
+            const mode = document.getElementById('variationMode').value;
+            
+            switch(mode) {
+                case 'random':
+                    const emojis = ['🔥', '⚡', '💥', '⭐', '🎯', '💫', '✨', '🌟'];
+                    const prefix = emojis[Math.floor(Math.random() * emojis.length)];
+                    return `${prefix} ${base} ${prefix}`;
+                case 'numbered':
+                    return `${base} [${index}/${total}]`;
+                case 'time':
+                    return `${base} 🕐 ${new Date().toLocaleTimeString()}`;
+                default:
+                    return base;
+            }
+        }
+        
+        // पोस्टिंग फंक्शन
+        async function startPosting() {
+            if(postingActive) return;
+            
+            const activeAccounts = accounts.filter(a => a.active);
+            if(activeAccounts.length === 0) {
+                addLog('❌ कोई एक्टिव अकाउंट नहीं', 'error');
+                return;
+            }
+            
+            const count = parseInt(document.getElementById('postCount').value);
+            const delay = parseInt(document.getElementById('postDelay').value) * 1000;
+            const postToAll = document.getElementById('postToAll').checked;
+            
+            postingActive = true;
+            addLog(`🚀 पोस्टिंग शुरू - ${count} पोस्ट, ${postToAll ? 'सभी' : 'पहले'} अकाउंट पर`, 'success');
+            
+            let posted = 0;
+            const progressFill = document.getElementById('progressFill');
+            
+            for(let i = 0; i < count; i++) {
+                if(!postingActive) break;
+                
+                // अकाउंट्स पर पोस्ट करें
+                for(const acc of activeAccounts) {
+                    if(!postingActive) break;
+                    
+                    try 
